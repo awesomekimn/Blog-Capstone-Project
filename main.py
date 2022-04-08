@@ -2,8 +2,8 @@ from flask import Flask, render_template, request
 import requests
 import smtplib
 
-my_email = "test525awesome@yahoo.com"
-password = "vpozaehtadmzzgcc"
+my_email = MY_EMAIL
+password = MY_PASSWORD
 
 posts = requests.get("https://api.npoint.io/2b75de17c055f76690b5").json()
 
@@ -43,7 +43,7 @@ def send_email(name, email, phone, message):
     with smtplib.SMTP("smtp.mail.yahoo.com") as connection:
         connection.starttls()
         connection.login(my_email, password)
-        connection.sendmail(my_email, "test0525awesome@gmail.com", email_message)
+        connection.sendmail(my_email, my_email, email_message)
 
 
 if __name__ == "__main__":
